@@ -47,12 +47,33 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public String queryEmpNameByDept(Integer dept_id) {
+    public List<Emp> queryEmpNameByDept(Integer dept_id) {
+
         return staffDao.queryEmpNameByDept(dept_id);
     }
 
     @Override
     public void addEmp(Emp emp) {
         staffDao.insert(emp);
+    }
+
+    @Override
+    public Emp queryEmpById(Integer id) {
+        return staffDao.selectEmpById(id);
+    }
+
+    @Override
+    public Dept queryDeptById(Integer id) {
+        return deptDao.selectById(id);
+    }
+
+    @Override
+    public Leader updateLeader(Integer leaderId) {
+        return leaderDao.selectById(leaderId);
+    }
+
+    @Override
+    public void saveEmp(Emp emp) {
+        staffDao.updateById(emp);
     }
 }

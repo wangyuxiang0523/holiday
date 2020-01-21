@@ -3,14 +3,15 @@
 <mapper namespace="com.fh.dao.StaffDao">
 <select id="queryStuList"  resultType="com.fh.model.EmpVo" parameterType="com.fh.model.PageBean">
     select w.id , w.name name,w.salary salary,w.entry_time entryTime,d.name deptName
-    ,l.name leaderName,j.id jobId,j.name jobname from w_emp w left join w_dept d on  w.dept_id = d.id left join w_job j on w.job_id = j.id
-    left join  w_leader l on w.leader_id = l.id limit #{start},#{length};
-
+    ,l.id leaderId,l.name leaderName,j.id jobId,j.name jobname from w_emp w left join w_dept d on  w.dept_id = d.id left join w_job j on w.job_id = j.id left join  w_leader l on w.leader_id = l.id limit #{start},#{length};
 </select>
     <select id="queryStaffCount" resultType="long">
         select count(id) from w_emp;
     </select>
-    <select id="queryEmpNameByDept" resultType="String" parameterType="Integer">
-        select name from w_emp where dept_id = #{dept_id}
+    <select id="queryEmpNameByDept" parameterType="Integer" resultType="com.fh.model.Emp">
+        select * from w_emp where dept_id = #{dept_id}
+    </select>
+    <select id="selectEmpById" parameterType="Integer" resultType="com.fh.model.Emp">
+        select * from w_emp where id =#{id}
     </select>
 </mapper>

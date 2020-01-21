@@ -14,16 +14,16 @@ public class Emp {
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
     @TableField(value = "job_id")
-    private Integer job_id;
+    private Integer jobId;
     @TableField(value = "salary")
     private BigDecimal salary;
     @TableField(value = "entry_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date entry_time;
+    private Date entryTime;
     @TableField(value = "leader_id")
-    private Integer leader_id;
+    private Integer leaderId;
     @TableField(value = "dept_id")
-    private Integer dept_id;
+    private Integer deptId;
 
     private String name;
 
@@ -44,13 +44,7 @@ public class Emp {
         this.id = id;
     }
 
-    public Integer getJob_id() {
-        return job_id;
-    }
 
-    public void setJob_id(Integer job_id) {
-        this.job_id = job_id;
-    }
 
     public BigDecimal getSalary() {
         return salary;
@@ -60,27 +54,35 @@ public class Emp {
         this.salary = salary;
     }
 
-    public Date getEntry_time() {
-        return entry_time;
+    public Integer getJobId() {
+        return jobId;
     }
 
-    public void setEntry_time(Date entry_time) {
-        this.entry_time = entry_time;
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
     }
 
-    public Integer getLeader_id() {
-        return leader_id;
+    public Date getEntryTime() {
+        return entryTime;
     }
 
-    public void setLeader_id(Integer leader_id) {
-        this.leader_id = leader_id;
+    public void setEntryTime(Date entryTime) {
+        this.entryTime = entryTime;
     }
 
-    public Integer getDept_id() {
-        return dept_id;
+    public Integer getLeaderId() {
+        return leaderId;
     }
 
-    public void setDept_id(Integer dept_id) {
-        this.dept_id = dept_id;
+    public void setLeaderId(Integer leaderId) {
+        this.leaderId = leaderId;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 }

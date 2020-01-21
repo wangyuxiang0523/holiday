@@ -13,7 +13,15 @@ public interface StaffService {
 
     List<Leader> queryLeaderList();
 
-    String queryEmpNameByDept(Integer dept_id);
+    List<Emp> queryEmpNameByDept(Integer dept_id);
 
     void addEmp(Emp emp);
+
+    Emp queryEmpById(Integer id);
+
+    Dept queryDeptById(Integer id);
+
+    Leader updateLeader(Integer leaderId);
+
+    void saveEmp(Emp emp);
 }
