@@ -101,4 +101,12 @@ public class StaffController {
         map.put("data",s);
         return map;
     }
+    @DeleteMapping
+    public Map deleteStaff(Integer id){
+        Map<String,Object> map = new HashMap<>();
+        staffService.deleteStaff(id);
+        map.put("code",200);
+        map.put("message","删除成功");
+       return map;
+    }
 }

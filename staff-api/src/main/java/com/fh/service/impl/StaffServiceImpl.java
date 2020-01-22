@@ -76,4 +76,9 @@ public class StaffServiceImpl implements StaffService {
     public void saveEmp(Emp emp) {
         staffDao.updateById(emp);
     }
+
+    @Override
+    public void deleteStaff(Integer id) {
+        staffDao.deleteById(id);
+    }
 }

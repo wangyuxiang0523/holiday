@@ -24,4 +24,6 @@ public interface StaffService {
     Leader updateLeader(Integer leaderId);
 
     void saveEmp(Emp emp);
+
+    void deleteStaff(Integer id);
 }

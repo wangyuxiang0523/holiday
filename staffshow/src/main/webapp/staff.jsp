@@ -288,9 +288,9 @@
             }
         })
     }
-    function deleteDrug(id) {
+    function deleteStaff(id) {
         $.ajax({
-            url:"http://localhost:9099/drug",
+            url:"http://localhost:9070/staff",
             dataType:"json",
             type:"delete",
             data:{"id":id},
