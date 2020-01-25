@@ -3,10 +3,14 @@ package com.fh.controller;
 import com.fh.model.*;
 import com.fh.service.StaffService;
 import com.fh.util.RedisPool;
+import com.fh.util.ResponseServer;
+import com.fh.util.ServerEnum;
+import com.fh.util.excelUtils.ExportExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,8 +23,8 @@ public class StaffController {
     @Autowired
     private StaffService staffService;
     @PostMapping("query")
-    public PageBean<EmpVo> queryStuList(PageBean<EmpVo> pageBean){
-        pageBean=  staffService.queryStaffList(pageBean);
+    public PageBean<EmpVo> queryStuList(PageBean<EmpVo> pageBean,EmpQuery empQuery){
+        pageBean=  staffService.queryStaffList(pageBean,empQuery);
         return pageBean;
     }
     @GetMapping("toAdd")
@@ -108,5 +112,15 @@ public class StaffController {
         map.put("code",200);
         map.put("message","删除成功");
        return map;
+    }
+    @PostMapping("exportEmpExcel")
+    public ResponseServer exportExcel(EmpQuery empQuery) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        List<EmpVo> list= staffService.queryExcelList(empQuery);
+        if(list.size()==0){
+            return ResponseServer.error(ServerEnum.EXPORT_NULL);
+        }
+        //导出
+        String url=ExportExcelUtils.export(list,EmpVo.class);
+        return ResponseServer.success(url);
     }
 }

@@ -5,7 +5,7 @@ import com.fh.model.*;
 import java.util.List;
 
 public interface StaffService {
-    PageBean<EmpVo> queryStaffList(PageBean<EmpVo> pageBean);
+    PageBean<EmpVo> queryStaffList(PageBean<EmpVo> pageBean,EmpQuery empQuery);
 
     List<Job> queryJobList();
 
@@ -26,4 +26,6 @@ public interface StaffService {
     void saveEmp(Emp emp);
 
     void deleteStaff(Integer id);
+
+    List<EmpVo> queryExcelList(EmpQuery empQuery);
 }

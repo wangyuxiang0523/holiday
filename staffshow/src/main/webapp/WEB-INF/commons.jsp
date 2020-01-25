@@ -3,13 +3,7 @@
 <link href="<%=request.getContextPath()%>/commons/fileInput/css/fileinput.min.css">
 <link href="<%=request.getContextPath()%>/commons/bootstarpValidator/css/bootstrapValidator.css">
 <link href="<%=request.getContextPath()%>/commons/ztree/css/bootstrapStyle/bootstrapStyle.css" rel="stylesheet">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/commons/ace/css/font-awesome.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/commons/ace/css/ionicons.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/commons/ace/css/AdminLTE.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/commons/ace/css/skins/skin-blue.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/commons/ace/css/myCommon.css">
+
 <script src="<%=request.getContextPath()%>/commons/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/commons/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/commons/datatable/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>

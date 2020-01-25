@@ -22,11 +22,11 @@ public class StaffServiceImpl implements StaffService {
     @Autowired
     private LeaderDao leaderDao;
     @Override
-    public PageBean<EmpVo> queryStaffList(PageBean<EmpVo> pageBean) {
-        Long total=staffDao.queryStaffCount();
+    public PageBean<EmpVo> queryStaffList(PageBean<EmpVo> pageBean,EmpQuery empQuery) {
+        Long total=staffDao.queryStaffCount(empQuery);
         pageBean.setRecordsFiltered(total);
         pageBean.setRecordsTotal(total);
-        List<EmpVo> list=staffDao.queryStuList(pageBean);
+        List<EmpVo> list=staffDao.queryStuList(pageBean,empQuery);
         pageBean.setData(list);
         return pageBean;
     }
@@ -80,5 +80,10 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public void deleteStaff(Integer id) {
         staffDao.deleteById(id);
+    }
+
+    @Override
+    public List<EmpVo> queryExcelList(EmpQuery empQuery) {
+        return staffDao.queryExcelList(empQuery);
     }
 }

@@ -4,18 +4,21 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fh.annotation.ExcelAnnotation;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @TableName("w_emp")
+@ExcelAnnotation(title = "员工信息",sheetName = "员工信息",mkdir = "emp")
 public class Emp {
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
     @TableField(value = "job_id")
     private Integer jobId;
     @TableField(value = "salary")
+    @ExcelAnnotation(columnName = "工资")
     private BigDecimal salary;
     @TableField(value = "entry_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -24,7 +27,7 @@ public class Emp {
     private Integer leaderId;
     @TableField(value = "dept_id")
     private Integer deptId;
-
+    @ExcelAnnotation(columnName = "名字")
     private String name;
 
 

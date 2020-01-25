@@ -1,17 +1,19 @@
 package com.fh.model;
 
+import com.fh.annotation.ExcelAnnotation;
+
 import java.math.BigDecimal;
 import java.util.Date;
-
+@ExcelAnnotation(title = "员工信息",sheetName = "员工信息",mkdir = "emp")
 public class EmpVo {
     private Integer id;
-
+    @ExcelAnnotation(columnName = "名字")
     private String name;
 
     private Integer gobId;
 
     private String gobname;
-
+    @ExcelAnnotation(columnName = "工资")
     private BigDecimal salary;
 
     private Date entryTime;
